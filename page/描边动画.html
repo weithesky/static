@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title></title>
+	</head>
+	<body>
+		一条直线:<br>
+		<svg class="line" xmlns="http://www.w3.org/2000/svg" version="1.1">
+			<line x1="100" y1="100" x2="400" y2="100" style="stroke:rgb(255,0,0);stroke-width:2" />
+		</svg>
+		一条流动的虚线:<br>
+		<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+			<line class="line1" x1="100" y1="100" x2="400" y2="100" style="stroke:rgb(255,0,0);stroke-width:2" />
+		</svg>
+		描边运动:<br>
+		<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+			<line class="line2" x1="100" y1="100" x2="400" y2="100" style="stroke:rgb(255,0,0);stroke-width:2" />
+		</svg>
+	</body>
+</html>
+<style type="text/css">
+	.line1 {
+		stroke-dasharray: 20;
+		animation: run1 1s linear infinite;
+	}
+
+	@keyframes run1 {
+		from {
+			stroke-dashoffset: 0;
+		}
+
+		to {
+			stroke-dashoffset: 40;
+		}
+	}
+
+	.line2 {
+		/* 大于等于线的长度 */
+		stroke-dasharray: 300;
+		animation: run2 2s linear infinite;
+	}
+
+	@keyframes run2 {
+		from {
+			stroke-dashoffset: 300;
+		}
+
+		to {
+			stroke-dashoffset: 600;
+		}
+	}
+</style>
